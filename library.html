@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library</title>
+</head>
+<body>
+    <h1>Digital School Library</h1>
+    <form action="{{ url_for('library') }}" method="post">
+        <label>Date of Issue:</label>
+        <input type="text" name="date_of_issue"><br>
+        <label>Name of Book:</label>
+        <input type="text" name="book_name"><br>
+        <label>Name of Issuer:</label>
+        <input type="text" name="issuer_name"><br>
+        <label>Class:</label>
+        <input type="text" name="class_of_issuer"><br>
+        <label>Date on which Due:</label>
+        <input type="text" name="date_due"><br>
+        <label>Date of Return:</label>
+        <input type="text" name="date_of_return"><br>
+        <input type="submit" value="Save">
+    </form>
+    <table>
+        <tr>
+            <th>Date of Issue</th>
+            <th>Name of Book</th>
+            <th>Name of Issuer</th>
+            <th>Date on which Due</th>
+            <th>Date of Return</th>
+        </tr>
+        {% for entry in library_data %}
+        <tr>
+            <td>{{ entry['Date of Issue'] }}</td>
+            <td>{{ entry['Name of Book'] }}</td>
+            <td>{{ entry['Name of Issuer'] }}</td>
+            <td>{{ entry['Date on which Due'] }}</td>
+            <td>{{ entry['Date of Return'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
